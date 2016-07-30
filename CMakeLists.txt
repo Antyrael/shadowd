@@ -40,7 +40,11 @@ if(NOT HAVE_CRYPTOPP_H)
     message(FATAL_ERROR "libcryptopp is missing")
 endif()
 
+# Enable C++11 features.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+# Enable hardening.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIE -pie")
 
 # Config
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
